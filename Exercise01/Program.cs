@@ -21,15 +21,15 @@ namespace Exercise01
         if (input == startCmd)
         {
           sw.Started = DateTime.Now;
-          Console.WriteLine("Time watch started at: {0}", sw.Started.ToString("HH:mm:ss.fffffff"));
+          Console.WriteLine("Time watch started at: {0:mm:ss.fffffff}", sw.Started);
         }
 
         if (input == stopCmd)
         {
           sw.Stopped = DateTime.Now;
-          Console.WriteLine("Time watch stopped at: {0}", sw.Stopped.ToString("HH:mm:ss.fffffff"));
+          Console.WriteLine("Time watch stopped at: {0:mm:ss.fffffff}", sw.Stopped);
 
-          Console.WriteLine("Duration: {0}", sw.Duration.ToString());
+          Console.WriteLine(@"Duration: {0:mm\:ss\.fffffff}", sw.Duration);
           Console.WriteLine();
         }
 
