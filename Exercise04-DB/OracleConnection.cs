@@ -5,9 +5,8 @@ namespace Exercise04_DB
 {
   public class OracleConnection : DbConnection
   {
-    public OracleConnection(string connectionString) : base(connectionString) 
+    public OracleConnection(string connectionString) : base(connectionString, new TimeSpan(0, 5, 0)) 
     { 
-      this.Timeout = new TimeSpan(0, 5, 0);
     }
     
     public override void Open()

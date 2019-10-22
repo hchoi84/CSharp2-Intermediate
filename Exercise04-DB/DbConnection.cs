@@ -6,14 +6,15 @@ namespace Exercise04_DB
   public abstract class DbConnection
   {
     public string ConnectionString { get; private set; }
-    public TimeSpan Timeout { get; set; }
+    public TimeSpan Timeout { get; private set; }
 
-    public DbConnection (string connectionString)
+    public DbConnection (string connectionString, TimeSpan timeout)
     {
       if (String.IsNullOrEmpty(connectionString))
         throw new InvalidOperationException("Connection String is either invalid or null");
 
       ConnectionString = connectionString;
+      Timeout = timeout;
     }
 
     public abstract void Open();

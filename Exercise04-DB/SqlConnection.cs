@@ -5,9 +5,8 @@ namespace Exercise04_DB
 {
   public class SqlConnection : DbConnection
   {
-    public SqlConnection(string connectionString) : base(connectionString) 
-    {
-      this.Timeout = new TimeSpan(0, 2, 0);
+    public SqlConnection(string connectionString) : base(connectionString, new TimeSpan(0, 2, 0)) 
+    {  
     }
     
     public override void Open()
