@@ -5,7 +5,10 @@ namespace Exercise04_DB
 {
   public class OracleConnection : DbConnection
   {
-    public OracleConnection(string connectionString) : base(connectionString) { }
+    public OracleConnection(string connectionString) : base(connectionString) 
+    { 
+      this.Timeout = new TimeSpan(0, 5, 0);
+    }
     
     public override void Open()
     {
@@ -16,7 +19,7 @@ namespace Exercise04_DB
 
     public override void Close()
     {
-      Console.WriteLine("Connection to Oracle has closed");
+      Console.WriteLine($"Connection to Oracle will automatically close in {this.Timeout}");
     }
   }
 }

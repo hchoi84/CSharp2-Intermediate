@@ -6,7 +6,7 @@ namespace Exercise04_DB
   public abstract class DbConnection
   {
     public string ConnectionString { get; private set; }
-    public TimeSpan Timeout { get; private set; }
+    public TimeSpan Timeout { get; set; }
 
     public DbConnection (string connectionString)
     {
@@ -21,11 +21,9 @@ namespace Exercise04_DB
 
     public void Run()
     {
-      Console.WriteLine();
       Console.WriteLine("Processing...");
-      Thread.Sleep(1000);
+      Thread.Sleep(2000);
       Console.WriteLine("Processing done");
-      Console.WriteLine();
     }
   }
 }

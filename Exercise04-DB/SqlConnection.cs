@@ -5,7 +5,10 @@ namespace Exercise04_DB
 {
   public class SqlConnection : DbConnection
   {
-    public SqlConnection(string connectionString) : base(connectionString) {}
+    public SqlConnection(string connectionString) : base(connectionString) 
+    {
+      this.Timeout = new TimeSpan(0, 2, 0);
+    }
     
     public override void Open()
     {
@@ -16,7 +19,7 @@ namespace Exercise04_DB
 
     public override void Close()
     {
-      Console.WriteLine("Connection to SQL has closed");
+      Console.WriteLine($"Connection to SQL will automatically close in {this.Timeout}");
     }
   }
 }

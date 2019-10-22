@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Exercise04_DB
 {
@@ -6,8 +7,22 @@ namespace Exercise04_DB
   {
     static void Main(string[] args)
     {
-      DbCommand dbCmd = new DbCommand(new OracleConnection("Connection String"));
-      dbCmd.Execute();
+      List<DbConnection> dataBases = new List<DbConnection>();
+
+      dataBases.Add(new SqlConnection("SQL Connection String"));
+      dataBases.Add(new OracleConnection("Oracle Connection String"));
+
+      for (int i = 0; i < dataBases.Count; i++)
+      {
+        DbCommand dbCmd = new DbCommand(dataBases[i]);
+        dbCmd.Execute();
+        Console.WriteLine();
+        Console.WriteLine("============================");
+        Console.WriteLine();
+
+        if (i != dataBases.Count - 1)
+          Console.WriteLine("Connecting to next database");
+      }
     }
   }
 }
