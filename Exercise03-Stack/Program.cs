@@ -6,20 +6,21 @@ namespace Exercise03_Stack
   {
     static void Main(string[] args)
     {
-      var stack = new Stack();
+      Stack stack = new Stack();
+      int stackStartIdx = 0;
+      int stackCount = 4;
       
-      for (var i = 1; i < 4; i++)
+      for (var i = stackStartIdx; i < stackCount; i++)
       {
         stack.Push(i);
       }
-
-      stack.Clear();
       
-      for (var i = 1; i < 4; i++)
+      for (var i = stack.GetStackCount(); i >= 0; i--)
       {
-        Console.WriteLine(stack.Pop());
+        stack.Pop();
       }
 
+      stack.Clear();
     }
   }
 }

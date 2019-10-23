@@ -16,29 +16,34 @@ namespace Exercise03_Stack
       else
       {
         List.Add(obj);
-        Console.WriteLine("Object has been added");
+        Console.WriteLine("Object {0} has been added", obj.ToString());
       }
     }
 
-    public object Pop()
+    public void Pop()
     {
       if (List.Count == 0)
-        throw new InvalidOperationException("Stack is currently empty");
+        throw new InvalidOperationException("Nothing to pop. Stack is empty");
 
-      object value = List[List.Count - 1];
+      object obj = List[List.Count - 1];
       List.RemoveAt(List.Count - 1);
-      return value;
+      Console.WriteLine("Object {0} has been removed", obj.ToString());
     }
 
     public void Clear()
     {
       if (List.Count == 0)
-        Console.WriteLine("Stack is already empty");
+        throw new InvalidOperationException("Nothing to clear. Stack is empty");
       else
       {
         List.Clear();
         Console.WriteLine("Stack has been cleared");
       }
+    }
+
+    public int GetStackCount()
+    {
+      return List.Count;
     }
   }
 }
